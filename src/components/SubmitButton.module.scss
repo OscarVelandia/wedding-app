@@ -1,0 +1,11 @@
+$main-orange: rgb(218, 149, 75);
+$border-radius: 0.4rem;
+
+.submitButton {
+  all: unset;
+  font-size: 1rem;
+  border-radius: $border-radius;
+  background-color: $main-orange;
+  padding: 1rem;
+  color: white;
+}

@@ -1,0 +1,38 @@
+.pageContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.navbar {
+  margin: 0 5%;
+
+  ul {
+    display: flex;
+    justify-content: flex-end;
+
+    li {
+      list-style-type: none;
+      padding: 0.5rem 1rem;
+      border-right: solid black 3px;
+      font-size: 1.5rem;
+      transform: skewX(-7deg);
+    }
+
+    li:last-child {
+      border-right: none;
+    }
+
+
+    .selectedRoute {
+        background-color: rgb(253, 242, 208);
+    }
+  }
+}
+
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+  margin: 0 15%;
+}

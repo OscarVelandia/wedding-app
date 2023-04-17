@@ -1,0 +1,14 @@
+.separatorRoot {
+  background-color: rgb(193, 193, 193);
+  margin: 2rem 0;
+}
+
+.separatorRoot[data-orientation="horizontal"] {
+  height: 2px;
+  width: 100%;
+}
+
+.separatorRoot[data-orientation="vertical"] {
+  height: 100%;
+  width: 1px;
+}
