@@ -18,11 +18,8 @@ const texts = {
 };
 
 export default function WeddingSchedule() {
-  const { state } = useContext(GlobalContext);
-
   return (
     <PagesContainer gap="2rem">
-      {Boolean(state.isCodeDialogOpen) && <CodeDialog />}
       <section>
         <SubtitleWithDate />
         <p>{texts.introduction}</p>
