@@ -1,5 +1,6 @@
 import {
   Address,
+  CodeDialog,
   PagesContainer,
   Separator,
   SubmitAndCancelButtons,
@@ -48,6 +49,7 @@ export default function Bachelorette() {
 
   return (
     <PagesContainer gap="2rem">
+      {state.isCodeDialogOpen && <CodeDialog />}
       <section className={styles.container}>
         <p>{texts.mainParagraph}</p>
         <p>

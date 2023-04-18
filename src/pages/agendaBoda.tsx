@@ -1,6 +1,8 @@
-import { Address, PagesContainer, Separator, SubmitAndCancelButtons, SubtitleWithDate } from "@components/index";
+import { Address, CodeDialog, PagesContainer, Separator, SubmitAndCancelButtons, SubtitleWithDate } from "@components/index";
 
 import styles from "./agendaBoda.module.scss";
+import { useContext } from "react";
+import { GlobalContext } from "../context";
 
 const texts = {
   introduction:
@@ -16,8 +18,11 @@ const texts = {
 };
 
 export default function WeddingSchedule() {
+  const { state } = useContext(GlobalContext);
+
   return (
     <PagesContainer gap="2rem">
+      {Boolean(state.isCodeDialogOpen) && <CodeDialog />}
       <section>
         <SubtitleWithDate />
         <p>{texts.introduction}</p>
