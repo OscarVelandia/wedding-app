@@ -19,6 +19,7 @@ export const CodeDialog = () => {
         >
           <Form.Field name="code">
             <Form.Control
+              className={styles.formInput}
               placeholder={texts.inputPlaceholder}
               maxLength={4}
               minLength={4}
