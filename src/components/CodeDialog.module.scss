@@ -60,6 +60,18 @@ $gray-font: rgb(193, 193, 193);
 $main-orange: rgb(218, 149, 75);
 $border-radius: 0.4rem;
 
+.fieldContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  span {
+    display: list-item;
+    margin-left: 1rem;
+    color: orangered;
+  }
+}
+
 .formInput {
   border: 1px solid $main-orange;
   border-radius: $border-radius;
