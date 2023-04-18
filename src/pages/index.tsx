@@ -10,10 +10,19 @@ import { Great_Vibes } from "next/font/google";
 import Head from "next/head";
 import Image from "next/image";
 import banner from "public/mainBanner.gif";
+import { useContext, useState } from "react";
+import { GlobalContext } from "../context";
 
 import styles from "./index.module.scss";
+import { Guest } from "./api/guest";
 
 const inter = Great_Vibes({ weight: "400", subsets: ["latin"] });
+
+interface FormData {
+  name: string;
+  cellphone: string;
+  menu: 'vegetarian' | 'carnivorous'
+}
 
 export const texts = {
   confirm: "Confirma tu asistencia a la ceremonia:",
@@ -32,11 +41,25 @@ export const texts = {
 };
 
 export default function Home() {
+  const { state, dispatch } = useContext(GlobalContext);
 
-  // Add an interface here
-  const handleFormSubmit = async (data: Record<string, unknown>) => {
+  const handleFormSubmit = async (data: FormData) => {
+    if (!state.guest) return;
 
-  }
+    const updatedGuest: Guest = {...state.guest, ...data};
+    const response = await fetch('/api/guest', {
+      method: 'POST',
+      body: JSON.stringify(updatedGuest)
+    });
+    
+    if (response.ok) {
+      const guest: Guest = await response.json();
+
+      dispatch({ type: "SET_GUEST", payload: guest });
+    } else {
+      handleFormSubmit(data)
+    }
+  };
 
   return (
     <>
@@ -46,8 +69,9 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+
       <PagesContainer>
-        <CodeDialog />
+        {state.isCodeDialogOpen && <CodeDialog />}
         <section className={styles.banner}>
           <Image
             src={banner}
@@ -78,29 +102,24 @@ export default function Home() {
           title={texts.confirm}
           submitButtonLabel={texts.submitButton}
         >
-          <Form.Field name="name">
+          <Form.Field className={styles.fieldContainer} name="guest">
             <Form.Control
               className={styles.formInput}
-              minLength={10}
-              placeholder="Nombre completo"
+              defaultValue={state.guest?.name}
+              disabled={Boolean(state.guest?.name)}
               required
               title="Nombre completo"
               type="text"
             />
-            <Form.Message match="valueMissing">
-              Por favor agrega tu nombre.
-            </Form.Message>
-            <Form.Message match="tooShort">
-              Por favor agrega tu nombre completo.
-            </Form.Message>
           </Form.Field>
-          <Form.Field name="cellphone">
+          <Form.Field className={styles.fieldContainer} name="cellphone">
             <Form.Control
               className={styles.formInput}
-              placeholder="Telèfono"
+              defaultValue={state.guest?.cellphone}
               maxLength={10}
               minLength={10}
               pattern="3[0-9]{9}"
+              placeholder="Telèfono"
               required
               title="Telèfono"
               type="tel"
@@ -115,8 +134,8 @@ export default function Home() {
               Por favor agrega un nùmero de telèfono valido.
             </Form.Message>
           </Form.Field>
-          <Form.Field name="country">
-            <Form.Control asChild placeholder="Menù">
+          <Form.Field className={styles.fieldContainer} name="menu">
+            <Form.Control asChild defaultValue={state.guest?.menu} placeholder="Menù">
               <select className={`${styles.menuSelect} ${styles.formInput}`}>
                 <option value="carnivorous">Quiero menù con carnita</option>
                 <option value="veggie">Quiero menù vegetariano</option>
