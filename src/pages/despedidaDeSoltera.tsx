@@ -6,6 +6,9 @@ import {
 } from "@components/index";
 
 import styles from "./despedidaDeSoltera.module.scss";
+import { useContext } from "react";
+import { GlobalContext } from "../context";
+import { Guest } from "./api/guest";
 
 const texts = {
   confirmAssistance: "Confirma tu asistencia a la despedida de soltera:",
@@ -18,9 +21,30 @@ const texts = {
 };
 
 export default function Bachelorette() {
-  const onCancelButtonClick = () => {};
+  const { state, dispatch } = useContext(GlobalContext);
 
-  const onSubmitButtonClick = () => {};
+  const handleButtonClick = async (
+    willAttendToTheBacheloretteParty: boolean
+  ) => {
+    if (!state.guest) return;
+
+    const updatedGuest: Guest = {
+      ...state.guest,
+      willAttendToTheBacheloretteParty,
+    };
+    const response = await fetch("/api/guest", {
+      method: "POST",
+      body: JSON.stringify(updatedGuest),
+    });
+
+    if (response.ok) {
+      const guest: Guest = await response.json();
+
+      dispatch({ type: "SET_GUEST", payload: guest });
+    } else {
+      handleButtonClick(willAttendToTheBacheloretteParty);
+    }
+  };
 
   return (
     <PagesContainer gap="2rem">
@@ -35,15 +59,17 @@ export default function Bachelorette() {
         </p>
       </section>
       <Separator />
-      <div>
-        <h2 className={styles.formTitle}>{texts.confirmAssistance}</h2>
-        <SubmitAndCancelButtons
-          cancelLabel={texts.confirmButton}
-          onCancelButtonClick={onCancelButtonClick}
-          onSubmitButtonClick={onSubmitButtonClick}
-          submitLabel={texts.cancelButton}
-        />
-      </div>
+      {state.guest?.isBacheloretteFormHidden ? null : (
+        <div>
+          <h2 className={styles.formTitle}>{texts.confirmAssistance}</h2>
+          <SubmitAndCancelButtons
+            submitLabel={texts.confirmButton}
+            onCancelButtonClick={() => handleButtonClick(false)}
+            onSubmitButtonClick={() => handleButtonClick(true)}
+            cancelLabel={texts.cancelButton}
+          />
+        </div>
+      )}
     </PagesContainer>
   );
 }
