@@ -3,7 +3,6 @@
   backdrop-filter: saturate(180%) blur(10px);
   position: fixed;
   inset: 0;
-  animation: overlayShow 150ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .dialogContent {
@@ -37,15 +36,6 @@ $gray-font: rgb(193, 193, 193);
   line-height: 1.5;
 }
 
-@keyframes overlayShow {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
 @keyframes contentShow {
   from {
     opacity: 0;
@@ -64,6 +54,7 @@ $border-radius: 0.4rem;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  width: 100%;
 
   span {
     display: list-item;
@@ -76,7 +67,6 @@ $border-radius: 0.4rem;
   border: 1px solid $main-orange;
   border-radius: $border-radius;
   height: 2.7rem;
-  width: 20rem;
   padding: 0.5rem 0.8rem;
   font-size: 1rem;
 }
