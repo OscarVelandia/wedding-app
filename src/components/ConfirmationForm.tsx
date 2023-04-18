@@ -4,9 +4,10 @@ import { ReactNode } from "react";
 
 import styles from "./ConfirmationForm.module.scss";
 
-export const ConfirmationFormContainer = ({
+export const ConfirmationFormContainer = <TFormData,>({
   cancelButtonLabel,
   children,
+  onFormSubmit,
   onCancelButtonClick,
   submitButtonLabel,
   title,
@@ -14,6 +15,7 @@ export const ConfirmationFormContainer = ({
   cancelButtonLabel?: string;
   children: ReactNode;
   onCancelButtonClick?: () => void;
+  onFormSubmit: (data: TFormData) => Promise<void>
   submitButtonLabel: string;
   title: string;
 }) => {
@@ -24,9 +26,12 @@ export const ConfirmationFormContainer = ({
         className={styles.formContainer}
         // `onSubmit` only triggered if it passes client-side validation
         onSubmit={(event) => {
-          const data = Object.fromEntries(new FormData(event.currentTarget));
+          const data =
+            Object.fromEntries(new FormData(event.currentTarget)) as unknown as TFormData;
 
           console.log(data);
+
+          onFormSubmit(data)
 
           // // Submit form data and catch errors in the response
           // submitForm(data)

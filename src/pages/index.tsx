@@ -32,6 +32,12 @@ export const texts = {
 };
 
 export default function Home() {
+
+  // Add an interface here
+  const handleFormSubmit = async (data: Record<string, unknown>) => {
+
+  }
+
   return (
     <>
       <Head>
@@ -68,6 +74,7 @@ export default function Home() {
         </section>
         <Separator />
         <ConfirmationFormContainer
+          onFormSubmit={handleFormSubmit}
           title={texts.confirm}
           submitButtonLabel={texts.submitButton}
         >

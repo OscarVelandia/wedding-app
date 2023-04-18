@@ -10,10 +10,17 @@ const texts = {
 };
 
 export const CodeDialog = () => {
+
+  // Add an interface here
+  const handleFormSubmit = async (data: Record<string, unknown>) => {
+
+  }
+
   return (
     <div className={styles.container}>
       <div className={styles.dialogContent}>
         <ConfirmationFormContainer
+          onFormSubmit={handleFormSubmit}
           title={texts.title}
           submitButtonLabel={texts.sendCode}
         >
