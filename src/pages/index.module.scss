@@ -32,6 +32,7 @@ $border-radius: 0.4rem;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  width: 100%;
 
   span {
     display: list-item;
@@ -44,7 +45,6 @@ $border-radius: 0.4rem;
   border: 1px solid $main-orange;
   border-radius: $border-radius;
   height: 2.7rem;
-  width: 35rem;
   padding: 0.5rem 0.8rem;
   font-size: 1rem;
 }
@@ -61,7 +61,6 @@ $border-radius: 0.4rem;
 }
 
 .menuSelect {
-  width: 36.7rem;
   height: 3.5rem;
   color: $gray-font;
   font-weight: bolder;
