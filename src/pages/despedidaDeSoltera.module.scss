@@ -1,0 +1,12 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+$gray-font: rgb(193, 193, 193);
+
+.formTitle {
+  margin-bottom: 1.5rem;
+  color: $gray-font;
+}

@@ -1,4 +1,4 @@
-import { Address, PagesContainer, Separator, SubmitButton, SubtitleWithDate } from "@components/index";
+import { Address, PagesContainer, Separator, SubmitAndCancelButtons, SubtitleWithDate } from "@components/index";
 
 import styles from "./agendaBoda.module.scss";
 
@@ -35,9 +35,8 @@ export default function WeddingSchedule() {
             label={texts.address}
           />
         </p>
-        <Separator />
       </section>
-      <SubmitButton label={texts.confirmMenu} />
+      <Separator />
     </PagesContainer>
   );
 }

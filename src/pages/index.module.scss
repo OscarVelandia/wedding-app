@@ -1,4 +1,6 @@
 $gray-font: rgb(193, 193, 193);
+$main-orange: rgb(218, 149, 75);
+$border-radius: 0.4rem;
 
 .banner {
   display: flex;
@@ -26,38 +28,37 @@ $gray-font: rgb(193, 193, 193);
   }
 }
 
-.formTitle { 
-  margin-bottom: 1.5rem;
-  color: $gray-font;
-
+.formInput {
+  border: 1px solid $main-orange;
+  border-radius: $border-radius;
+  height: 2.7rem;
+  width: 35rem;
+  padding: 0.5rem 0.8rem;
+  font-size: 1rem;
 }
 
-$main-orange: rgb(218, 149, 75);
-$border-radius: 0.4rem;
+.formInput::placeholder {
+  color: $gray-font;
+  font-weight: bolder;
+}
 
-.formContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 1rem;
 
-  .formInput {
-    border: 1px solid $main-orange;
-    border-radius: $border-radius;
-    height: 2.7rem;
-    width: 35rem;
-    padding: 0.5rem 0.8rem;
-    font-size: 1rem;
-  }
+.formInput:focus {
+  outline: none !important;
+  border: 1.5px solid rgb(227, 129, 24);
+}
 
-  .formInput::placeholder {
-    color: $gray-font;
-    font-weight: bolder;
-  }
+.menuSelect {
+  width: 36.7rem;
+  height: 3.5rem;
+  color: $gray-font;
+  font-weight: bolder;
 
-  
-  .formInput:focus {
-    outline: none !important;
-    border: 1.5px solid rgb(227, 129, 24);
-  }
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: transparent;
+  background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+  background-repeat: no-repeat;
+  background-position-x: 98%;
+  background-position-y: 14px;
 }
