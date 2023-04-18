@@ -1,19 +1,23 @@
 import { Guest } from "../pages/api/guest";
+import { Lottery } from "../pages/api/lotteryWinner";
 import { customCreateContext } from "./customCreateContext";
 
 interface GlobalContextType {
   guest: Guest | null;
   isCodeDialogOpen: boolean;
+  winner: Lottery | null;
 }
 
 const initialState: GlobalContextType = {
   guest: null,
   isCodeDialogOpen: true,
+  winner: null,
 };
 
 type Action =
   | { type: "SET_GUEST"; payload: Guest }
-  | { type: "SET_CODE_DIALOG_STATUS"; payload: boolean };
+  | { type: "SET_CODE_DIALOG_STATUS"; payload: boolean }
+  | { type: "SET_WINNER"; payload: Lottery };
 
 function reducer(state: GlobalContextType, action: Action): GlobalContextType {
   switch (action.type) {
@@ -22,6 +26,9 @@ function reducer(state: GlobalContextType, action: Action): GlobalContextType {
 
     case "SET_CODE_DIALOG_STATUS":
       return { ...state, isCodeDialogOpen: action.payload };
+
+    case "SET_WINNER":
+      return { ...state, winner: action.payload };
 
     default:
       // @ts-ignore Handle incorrect action type

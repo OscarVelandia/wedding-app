@@ -9,7 +9,7 @@
     {
         "code": "18231",
         "name": "Diana Guarin",
-        "isBacheloretteFormHidden": true,
+        "isBacheloretteFormHidden": false,
         "willAttendToTheBacheloretteParty": false,
         "genre": "female"
     },
@@ -112,6 +112,7 @@
         "genre": "female"
     },
     {
+        "isAdmin": true,
         "code": "10376",
         "name": "Daniel Velandia",
         "isBacheloretteFormHidden": true,
@@ -119,6 +120,7 @@
         "genre": "male"
     },
     {
+        "isAdmin": true,
         "code": "97627",
         "name": "Karen Echavarria",
         "isBacheloretteFormHidden": true,

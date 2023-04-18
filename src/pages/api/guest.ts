@@ -3,6 +3,7 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import path from "path";
 
 export interface Guest {
+  isAdmin: boolean;
   cellphone?: string;
   code: string;
   genre: "male" | "female";

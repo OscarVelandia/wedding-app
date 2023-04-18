@@ -1,0 +1,17 @@
+$main-orange: rgb(218, 149, 75);
+
+.container {
+    text-align: center;
+}
+
+.title {
+    color: $main-orange;
+}
+
+.winnerContainer {
+    div {
+        display: flex;
+        justify-content: center;
+        gap: 0.5rem;
+    }
+}
