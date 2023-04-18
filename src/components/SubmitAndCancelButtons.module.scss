@@ -1,6 +1,12 @@
 $main-orange: rgb(218, 149, 75);
 $border-radius: 0.4rem;
 
+.container {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
 .submitButton {
   all: unset;
   font-size: 1rem;
