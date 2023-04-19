@@ -59,7 +59,7 @@ export default function Bachelorette() {
         </p>
       </section>
       <Separator />
-      <div>
+      {/* <div>
         <h2 className={styles.formTitle}>{texts.confirmAssistance}</h2>
         <SubmitAndCancelButtons
           submitLabel={texts.confirmButton}
@@ -67,7 +67,7 @@ export default function Bachelorette() {
           onSubmitButtonClick={() => handleButtonClick(true)}
           cancelLabel={texts.cancelButton}
         />
-      </div>
+      </div> */}
     </PagesContainer>
   );
 }
