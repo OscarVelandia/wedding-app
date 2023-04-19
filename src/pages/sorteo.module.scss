@@ -1,17 +1,35 @@
 $main-orange: rgb(218, 149, 75);
 
 .container {
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
 }
 
 .title {
+    font-size: 2rem;
     color: $main-orange;
 }
 
 .winnerContainer {
     div {
+        font-size: 1.3rem;
         display: flex;
         justify-content: center;
         gap: 0.5rem;
     }
+}
+
+$main-orange: rgb(218, 149, 75);
+$border-radius: 0.4rem;
+
+.submitButton {
+  all: unset;
+  width: fit-content;
+  font-size: 1.3rem;
+  border-radius: $border-radius;
+  background-color: $main-orange;
+  padding: 1rem;
+  color: white;
 }

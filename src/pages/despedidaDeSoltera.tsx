@@ -60,17 +60,15 @@ export default function Bachelorette() {
         </p>
       </section>
       <Separator />
-      {state.guest?.isBacheloretteFormHidden ? null : (
-        <div>
-          <h2 className={styles.formTitle}>{texts.confirmAssistance}</h2>
-          <SubmitAndCancelButtons
-            submitLabel={texts.confirmButton}
-            onCancelButtonClick={() => handleButtonClick(false)}
-            onSubmitButtonClick={() => handleButtonClick(true)}
-            cancelLabel={texts.cancelButton}
-          />
-        </div>
-      )}
+      <div>
+        <h2 className={styles.formTitle}>{texts.confirmAssistance}</h2>
+        <SubmitAndCancelButtons
+          submitLabel={texts.confirmButton}
+          onCancelButtonClick={() => handleButtonClick(false)}
+          onSubmitButtonClick={() => handleButtonClick(true)}
+          cancelLabel={texts.cancelButton}
+        />
+      </div> 
     </PagesContainer>
   );
 }

@@ -45,15 +45,16 @@ export const PagesContainer = ({
   );
 };
 
-const headerTexts = {
-  firstOption: "Invitación Oficial",
-  secondOption: "Agenda Boda",
-  thirdOption: "Despedida de Soltera",
-};
-
 const Navbar = () => {
+  const { state } = useContext(GlobalContext);
   const router = useRouter();
   const pathname = router.pathname;
+  const headerTexts = {
+    firstOption: "Invitación Oficial",
+    secondOption: "Agenda Boda",
+    ...(state.guest?.isBacheloretteFormHidden ? {} : { thirdOption: "Despedida de Soltera" }),
+    ...(state.guest?.isAdmin ? { fourOption: "Sorteo" } : {}),
+  };
 
   return (
     <nav className={`${styles.navbar} ${navbarFont.className}`}>

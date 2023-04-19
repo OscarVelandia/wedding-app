@@ -17,6 +17,7 @@ const texts = {
   name: "Nombre:",
   submitButton: "Sortear",
   title: "Selecciona la ganadora",
+  winner: "Ganadora",
 };
 
 export default function Lottery() {
@@ -31,16 +32,17 @@ export default function Lottery() {
   };
 
   useEffect(() => {
-      if (!state.guest) return;
+    if (!state.guest) return;
 
     if (Boolean(state.guest.isAdmin) === false) router.push("/");
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [state.guest, state.guest?.isAdmin]);
 
   return (
     <PagesContainer gap="2rem">
       <section className={styles.container}>
         <SubtitleWithDate />
-        <h2 className={styles.title}>{texts.title}</h2>
+        <h2 className={styles.title}>{state.winner ? texts.winner : texts.title}</h2>
         {state.winner ? (
           <div className={styles.winnerContainer}>
             <div>
@@ -53,10 +55,16 @@ export default function Lottery() {
             </div>
           </div>
         ) : (
-          <SubmitAndCancelButtons
-            onSubmitButtonClick={handleRaffleButtonClick}
-            submitLabel={texts.submitButton}
-          />
+          <button
+            className={styles.submitButton}
+            onClick={handleRaffleButtonClick}
+          >
+            {texts.submitButton}
+          </button>
+          // <SubmitAndCancelButtons
+          //   onSubmitButtonClick={handleRaffleButtonClick}
+          //   submitLabel={texts.submitButton}
+          // />
         )}
       </section>
       <Separator />
