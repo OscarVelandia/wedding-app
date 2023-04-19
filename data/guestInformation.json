@@ -16,7 +16,7 @@
     {
         "code": "79342",
         "name": "Luna Velandia",
-        "isBacheloretteFormHidden": true,
+        "isBacheloretteFormHidden": false,
         "willAttendToTheBacheloretteParty": false,
         "genre": "male"
     },
@@ -30,7 +30,7 @@
     {
         "code": "75154",
         "name": "Helena Santafe",
-        "isBacheloretteFormHidden": true,
+        "isBacheloretteFormHidden": false,
         "willAttendToTheBacheloretteParty": false,
         "genre": "male"
     },
@@ -51,14 +51,14 @@
     {
         "code": "58327",
         "name": "Catalina Neva",
-        "isBacheloretteFormHidden": true,
+        "isBacheloretteFormHidden": false,
         "willAttendToTheBacheloretteParty": false,
         "genre": "female"
     },
     {
         "code": "60338",
         "name": "Andrea Echavarria",
-        "isBacheloretteFormHidden": true,
+        "isBacheloretteFormHidden": false,
         "willAttendToTheBacheloretteParty": false,
         "genre": "male"
     },
@@ -79,7 +79,7 @@
     {
         "code": "37161",
         "name": "Marisol Llano",
-        "isBacheloretteFormHidden": true,
+        "isBacheloretteFormHidden": false,
         "willAttendToTheBacheloretteParty": false,
         "genre": "female"
     },
@@ -107,7 +107,7 @@
     {
         "code": "34445",
         "name": "Martha Betancur",
-        "isBacheloretteFormHidden": true,
+        "isBacheloretteFormHidden": false,
         "willAttendToTheBacheloretteParty": false,
         "genre": "female"
     },
@@ -123,7 +123,7 @@
         "isAdmin": true,
         "code": "97627",
         "name": "Karen Echavarria",
-        "isBacheloretteFormHidden": true,
+        "isBacheloretteFormHidden": false,
         "willAttendToTheBacheloretteParty": false,
         "genre": "female"
     },
@@ -137,14 +137,14 @@
     {
         "code": "33489",
         "name": "Diani",
-        "isBacheloretteFormHidden": true,
+        "isBacheloretteFormHidden": false,
         "willAttendToTheBacheloretteParty": false,
         "genre": "female"
     },
     {
         "code": "82250",
         "name": "Adriana",
-        "isBacheloretteFormHidden": true,
+        "isBacheloretteFormHidden": false,
         "willAttendToTheBacheloretteParty": false,
         "genre": "male"
     },
@@ -158,28 +158,28 @@
     {
         "code": "46502",
         "name": "Xime",
-        "isBacheloretteFormHidden": true,
+        "isBacheloretteFormHidden": false,
         "willAttendToTheBacheloretteParty": false,
         "genre": "male"
     },
     {
         "code": "91973",
         "name": "Kathe",
-        "isBacheloretteFormHidden": true,
+        "isBacheloretteFormHidden": false,
         "willAttendToTheBacheloretteParty": false,
         "genre": "female"
     },
     {
         "code": "91554",
         "name": "Lams",
-        "isBacheloretteFormHidden": true,
+        "isBacheloretteFormHidden": false,
         "willAttendToTheBacheloretteParty": false,
         "genre": "male"
     },
     {
         "code": "30565",
         "name": "Ximena",
-        "isBacheloretteFormHidden": true,
+        "isBacheloretteFormHidden": false,
         "willAttendToTheBacheloretteParty": false,
         "genre": "female"
     },
@@ -193,21 +193,21 @@
     {
         "code": "27397",
         "name": "Kata Reina",
-        "isBacheloretteFormHidden": true,
+        "isBacheloretteFormHidden": false,
         "willAttendToTheBacheloretteParty": false,
         "genre": "female"
     },
     {
         "code": "32278",
         "name": "Laura Reina",
-        "isBacheloretteFormHidden": true,
+        "isBacheloretteFormHidden": false,
         "willAttendToTheBacheloretteParty": false,
         "genre": "male"
     },
     {
         "code": "27739",
         "name": "Venus A.",
-        "isBacheloretteFormHidden": true,
+        "isBacheloretteFormHidden": false,
         "willAttendToTheBacheloretteParty": false,
         "genre": "female"
     },
@@ -270,7 +270,7 @@
     {
         "code": "98298",
         "name": "Nancy Velandia",
-        "isBacheloretteFormHidden": true,
+        "isBacheloretteFormHidden": false,
         "willAttendToTheBacheloretteParty": false,
         "genre": "male"
     },
@@ -284,7 +284,7 @@
     {
         "code": "26560",
         "name": "Laura Alfonso",
-        "isBacheloretteFormHidden": true,
+        "isBacheloretteFormHidden": false,
         "willAttendToTheBacheloretteParty": false,
         "genre": "male"
     },
@@ -298,14 +298,14 @@
     {
         "code": "44072",
         "name": "Erika",
-        "isBacheloretteFormHidden": true,
+        "isBacheloretteFormHidden": false,
         "willAttendToTheBacheloretteParty": false,
         "genre": "male"
     },
     {
         "code": "14913",
         "name": "Sra Mercedes",
-        "isBacheloretteFormHidden": true,
+        "isBacheloretteFormHidden": false,
         "willAttendToTheBacheloretteParty": false,
         "genre": "female"
     },
@@ -333,22 +333,22 @@
     {
         "code": "90507",
         "name": "Cecilia",
-        "isBacheloretteFormHidden": true,
+        "isBacheloretteFormHidden": false,
         "willAttendToTheBacheloretteParty": false,
         "genre": "female"
     },
     {
         "code": "67998",
-        "name": "Guest 49",
-        "isBacheloretteFormHidden": true,
+        "name": "Elizabeth Llano",
+        "isBacheloretteFormHidden": false,
         "willAttendToTheBacheloretteParty": false,
-        "genre": "male"
+        "genre": "female"
     },
     {
         "code": "54889",
-        "name": "Guest 50",
+        "name": "Cesar Reina",
         "isBacheloretteFormHidden": true,
         "willAttendToTheBacheloretteParty": false,
-        "genre": "female"
+        "genre": "male"
     }
 ]
