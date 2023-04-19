@@ -8,8 +8,8 @@ import styles from "./CodeDialog.module.scss";
 
 const texts = {
   title: "Ingresa tu codigo",
-  inputPlaceholder: "Ingresa tù codigo de 5 digitos",
-  sendCode: "Envia el còdigo!",
+  inputPlaceholder: "Ingresa tu código de 5 digitos",
+  sendCode: "Envia el código!",
 };
 
 export const CodeDialog = () => {
@@ -67,13 +67,13 @@ export const CodeDialog = () => {
               <Form.Message>{serverErrors.code}</Form.Message>
             )}
             <Form.Message match="valueMissing">
-              Por favor agrega el còdigo.
+              Por favor agrega el código.
             </Form.Message>
             <Form.Message match="tooShort">
-              Por favor agrega 4 digitos.
+              Por favor agrega 5 digitos.
             </Form.Message>
             <Form.Message match="patternMismatch">
-              El còdigo solamente incluye nùmeros.
+              El código solamente incluye números.
             </Form.Message>
           </Form.Field>
         </ConfirmationFormContainer>

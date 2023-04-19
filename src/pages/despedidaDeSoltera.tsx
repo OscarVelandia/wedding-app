@@ -15,7 +15,7 @@ const texts = {
   mainParagraph:
     "Tendremos una noche llena de diversión, nuestra gente favorita, deliciosa comida y excelente vino para despedir la soltería.",
   confirmButton: "¡Cuenten conmigo!",
-  cancelButton: "No podrè asistir :(",
+  cancelButton: "No podré asistir :(",
   place: "Lugar:",
   address: "Cra. 47 #174a-48, Villa del prado. Bogotá, Colombia",
 };
@@ -67,7 +67,7 @@ export default function Bachelorette() {
           onSubmitButtonClick={() => handleButtonClick(true)}
           cancelLabel={texts.cancelButton}
         />
-      </div> 
+      </div>
     </PagesContainer>
   );
 }

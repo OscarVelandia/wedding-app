@@ -24,7 +24,7 @@ interface FormData {
 }
 
 export const texts = {
-  CantAttend: "No puedo ir, ¡pasenla bien!",
+  CantAttend: "No puedo ir, ¡pásenla bien!",
   confirm: "Confirma tu asistencia a la ceremonia:",
   date: "29 DE ABRIL DE 2023, 5:00 P.M.",
   firstBannerParagraph:
@@ -34,11 +34,11 @@ export const texts = {
     "La ceremonia tendrá lugar en la Parroquia Santa Maria Mazzarello. Ubicada en la",
   menu: "Menù",
   secondBannerParagraph: "¡Ahora es oficial!",
-  selectMenuPlaceholder: "Selecciona tu menù",
+  selectMenuPlaceholder: "Selecciona tu menú",
   sendForm: "Enviar",
   subtitle: "Karen y Daniel",
-  willAttend: "¡Nos veremos allà!",
-  willIAttend: "Irè a la celebraciòn?",
+  willAttend: "¡Nos veremos allá!",
+  willIAttend: "Irá a la celebración?",
 };
 
 export default function Home() {
@@ -116,19 +116,19 @@ export default function Home() {
             maxLength={10}
             minLength={10}
             pattern="3[0-9]{9}"
-            placeholder="Telèfono"
+            placeholder="Teléfono"
             required
-            title="Telèfono"
+            title="Teléfono"
             type="tel"
           />
           <Form.Message match="valueMissing">
-            Por favor agrega el numero de telèfono.
+            Por favor agrega el numero de teléfono.
           </Form.Message>
           <Form.Message match="tooShort">
-            Por favor agrega el nùmero completo.
+            Por favor agrega el número completo.
           </Form.Message>
           <Form.Message match="patternMismatch">
-            Por favor agrega un nùmero de telèfono valido.
+            Por favor agrega un número de teléfono válido.
           </Form.Message>
         </Form.Field>
         <Form.Field className={styles.fieldContainer} name="menu">
@@ -146,12 +146,12 @@ export default function Home() {
               <option value="" disabled hidden>
                 {texts.selectMenuPlaceholder}
               </option>
-              <option value="carnivorous">Quiero menù con carnita</option>
-              <option value="veggie">Quiero menù vegetariano</option>
+              <option value="carnivorous">Quiero menú con carnita</option>
+              <option value="veggie">Quiero menú vegetariano</option>
             </select>
           </Form.Control>
           <Form.Message match="valueMissing">
-            Por favor selecciona un menù.
+            Por favor selecciona un menú.
           </Form.Message>
         </Form.Field>
         <Form.Field className={styles.fieldContainer} name="willAttend">
@@ -180,7 +180,7 @@ export default function Home() {
             </select>
           </Form.Control>
           <Form.Message match="valueMissing">
-            Por favor selecciona una opciòn.
+            Por favor selecciona una opción.
           </Form.Message>
         </Form.Field>
       </ConfirmationFormContainer>

@@ -11,7 +11,7 @@ import { Lottery } from "./api/lotteryWinner";
 import styles from "./sorteo.module.scss";
 
 const texts = {
-  code: "Còdigo:",
+  code: "Código:",
   name: "Nombre:",
   submitButton: "Sortear",
   title: "Selecciona la ganadora",
