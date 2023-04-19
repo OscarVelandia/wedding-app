@@ -21,19 +21,25 @@ interface FormData {
   name: string;
   cellphone: string;
   menu: "vegetarian" | "carnivorous";
+  willAttend: "true" | "false";
 }
 
 export const texts = {
+  CantAttend: "No puedo ir, ¡pasenla bien!",
   confirm: "Confirma tu asistencia a la ceremonia:",
   date: "29 DE ABRIL DE 2023, 5:00 P.M.",
   firstBannerParagraph:
     "Te invitamos a celebrar con nosotros nuestros 13 años juntos",
+  location: "Calle 183 #9-09, Usaquén, Bogotá.",
   locationExplanation:
     "La ceremonia tendrá lugar en la Parroquia Santa Maria Mazzarello. Ubicada en la",
-  location: "Calle 183 #9-09, Usaquén, Bogotá.",
-  submitButton: "¡Nos veremos allà!",
+  menu: "Menù",
   secondBannerParagraph: "¡Ahora es oficial!",
+  selectMenuPlaceholder: "Selecciona tu menù",
+  sendForm: "Enviar",
   subtitle: "Karen y Daniel",
+  willAttend: "¡Nos veremos allà!",
+  willIAttend: "Irè a la celebraciòn?",
 };
 
 export default function Home() {
@@ -42,7 +48,11 @@ export default function Home() {
   const handleFormSubmit = async (data: FormData) => {
     if (!state.guest) return;
 
-    const updatedGuest: Guest = { ...state.guest, ...data };
+    const updatedGuest: Guest = {
+      ...state.guest,
+      ...data,
+      willAttend: data.willAttend === "true",
+    };
     const response = await fetch("/api/guest", {
       method: "POST",
       body: JSON.stringify(updatedGuest),
@@ -63,6 +73,7 @@ export default function Home() {
         <Image
           alt="Banner animation"
           className={styles.imageBanner}
+          priority
           src={banner}
         />
         <div>
@@ -87,7 +98,7 @@ export default function Home() {
       <ConfirmationFormContainer
         onFormSubmit={handleFormSubmit}
         title={texts.confirm}
-        submitButtonLabel={texts.submitButton}
+        submitButtonLabel={texts.sendForm}
       >
         <Form.Field className={styles.fieldContainer} name="guest">
           <Form.Control
@@ -122,16 +133,56 @@ export default function Home() {
           </Form.Message>
         </Form.Field>
         <Form.Field className={styles.fieldContainer} name="menu">
-          <Form.Control
-            asChild
-            defaultValue={state.guest?.menu}
-            placeholder="Menù"
-          >
-            <select className={`${styles.menuSelect} ${styles.formInput}`}>
+          <Form.Control asChild placeholder={texts.menu} required>
+            <select
+              // Hack to make the defaultValue change when state.guest change
+              key={
+                state.guest?.menu === undefined
+                  ? null
+                  : String(state.guest?.willAttend)
+              }
+              className={`${styles.menuSelect} ${styles.formInput}`}
+              defaultValue={state.guest?.menu || ""}
+            >
+              <option value="" disabled hidden>
+                {texts.selectMenuPlaceholder}
+              </option>
               <option value="carnivorous">Quiero menù con carnita</option>
               <option value="veggie">Quiero menù vegetariano</option>
             </select>
           </Form.Control>
+          <Form.Message match="valueMissing">
+            Por favor selecciona un menù.
+          </Form.Message>
+        </Form.Field>
+        <Form.Field className={styles.fieldContainer} name="willAttend">
+          <Form.Control asChild placeholder={texts.willIAttend} required>
+            <select
+              // Hack to make the defaultValue change when state.guest change
+              key={
+                state.guest?.willAttend === undefined
+                  ? null
+                  : String(state.guest?.willAttend)
+              }
+              className={`${styles.menuSelect} ${styles.formInput}`}
+              defaultValue={
+                state.guest?.willAttend === undefined
+                  ? ""
+                  : state.guest?.willAttend
+                  ? "true"
+                  : "false"
+              }
+            >
+              <option disabled hidden value="">
+                {texts.willIAttend}
+              </option>
+              <option value="true">{texts.willAttend}</option>
+              <option value="false">{texts.CantAttend}</option>
+            </select>
+          </Form.Control>
+          <Form.Message match="valueMissing">
+            Por favor selecciona una opciòn.
+          </Form.Message>
         </Form.Field>
       </ConfirmationFormContainer>
     </PagesContainer>

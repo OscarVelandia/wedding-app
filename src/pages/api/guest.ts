@@ -10,6 +10,7 @@ export interface Guest {
   isBacheloretteFormHidden: boolean;
   menu?: "vegetarian" | "carnivorous";
   name: string;
+  willAttend: boolean;
   willAttendToTheBacheloretteParty: boolean;
 }
 
