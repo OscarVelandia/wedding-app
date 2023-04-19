@@ -94,7 +94,7 @@ export default function Home() {
         </div>
       </section>
       <Separator />
-      <ConfirmationFormContainer
+      {/* <ConfirmationFormContainer
         onFormSubmit={handleFormSubmit}
         title={texts.confirm}
         submitButtonLabel={texts.sendForm}
@@ -183,7 +183,7 @@ export default function Home() {
             Por favor selecciona una opción.
           </Form.Message>
         </Form.Field>
-      </ConfirmationFormContainer>
+      </ConfirmationFormContainer> */}
     </PagesContainer>
   );
 }
