@@ -2,7 +2,7 @@ import { ConfirmationFormContainer } from "@components/index";
 import { GlobalContext } from "@context/index";
 import { Guest } from "@pages/api/guest";
 import * as Form from "@radix-ui/react-form";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 
 import styles from "./CodeDialog.module.scss";
 
@@ -13,11 +13,19 @@ const texts = {
 };
 
 export const CodeDialog = () => {
-  const { dispatch } = useContext(GlobalContext);
+  const { state, dispatch } = useContext(GlobalContext);
   const [serverErrors, setServerErrors] = useState<{ code: string | null }>({
     code: null,
   });
-  // Add an interface here
+
+  useEffect(() => {
+    document.body.style.overflow = "hidden";
+  
+    return () => {
+      document.body.style.overflow = "scroll"
+    }
+  }, [state.isCodeDialogOpen])
+
   const handleFormSubmit = async (data: { code: string }) => {
     try {
       const response = await fetch(`/api/guest?code=${Number(data.code)}`);
