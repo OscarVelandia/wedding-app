@@ -1,9 +1,7 @@
 import {
-  CodeDialog,
   PagesContainer,
   Separator,
-  SubmitAndCancelButtons,
-  SubtitleWithDate,
+  SubtitleWithDate
 } from "@components/index";
 import { useRouter } from "next/router";
 import { useContext, useEffect } from "react";

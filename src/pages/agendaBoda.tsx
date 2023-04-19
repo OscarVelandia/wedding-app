@@ -1,8 +1,6 @@
-import { Address, CodeDialog, PagesContainer, Separator, SubmitAndCancelButtons, SubtitleWithDate } from "@components/index";
+import { Address, PagesContainer, Separator, SubtitleWithDate } from "@components/index";
 
 import styles from "./agendaBoda.module.scss";
-import { useContext } from "react";
-import { GlobalContext } from "../context";
 
 const texts = {
   introduction:

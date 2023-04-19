@@ -1,13 +1,13 @@
+import { GlobalContext } from "@context/index";
 import { Pacifico } from "next/font/google";
+import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { ReactNode, useContext } from "react";
+import { CodeDialog } from ".";
 import { camelize } from "../utils/camelize";
 
 import styles from "./PagesContainer.module.scss";
-import { CodeDialog } from ".";
-import { GlobalContext } from "../context";
-import Head from "next/head";
 
 const navbarFont = Pacifico({ weight: "400", subsets: ["latin"] });
 

@@ -1,9 +1,8 @@
 import {
   Address,
-  CodeDialog,
   ConfirmationFormContainer,
   PagesContainer,
-  Separator,
+  Separator
 } from "@components/index";
 import * as Form from "@radix-ui/react-form";
 import { Great_Vibes } from "next/font/google";

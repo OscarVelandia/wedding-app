@@ -1,15 +1,14 @@
 import {
   Address,
-  CodeDialog,
   PagesContainer,
   Separator,
-  SubmitAndCancelButtons,
+  SubmitAndCancelButtons
 } from "@components/index";
 
-import styles from "./despedidaDeSoltera.module.scss";
 import { useContext } from "react";
 import { GlobalContext } from "../context";
 import { Guest } from "./api/guest";
+import styles from "./despedidaDeSoltera.module.scss";
 
 const texts = {
   confirmAssistance: "Confirma tu asistencia a la despedida de soltera:",
