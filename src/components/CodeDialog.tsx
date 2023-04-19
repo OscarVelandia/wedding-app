@@ -8,7 +8,7 @@ import styles from "./CodeDialog.module.scss";
 
 const texts = {
   title: "Ingresa tu codigo",
-  inputPlaceholder: "Ingresa tù codigo de 4 digitos",
+  inputPlaceholder: "Ingresa tù codigo de 5 digitos",
   sendCode: "Envia el còdigo!",
 };
 
