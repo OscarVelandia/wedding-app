@@ -7,7 +7,6 @@ import {
 } from "@components/index";
 import * as Form from "@radix-ui/react-form";
 import { Great_Vibes } from "next/font/google";
-import Head from "next/head";
 import Image from "next/image";
 import banner from "public/mainBanner.gif";
 import { useContext } from "react";
@@ -62,9 +61,9 @@ export default function Home() {
     <PagesContainer>
       <section className={styles.banner}>
         <Image
-          src={banner}
           alt="Banner animation"
-          style={{ width: "100%", height: "100%" }}
+          className={styles.imageBanner}
+          src={banner}
         />
         <div>
           <p>{texts.firstBannerParagraph}</p>
