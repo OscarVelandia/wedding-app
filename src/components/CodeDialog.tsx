@@ -7,7 +7,7 @@ import { getGuestByCode } from "../db/guests";
 import styles from "./CodeDialog.module.scss";
 
 const texts = {
-  title: "Ingresa tu codigo",
+  title: "Ingresa tu código",
   inputPlaceholder: "Ingresa tu código de 5 digitos",
   sendCode: "Envia el código!",
 };
