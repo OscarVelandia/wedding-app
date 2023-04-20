@@ -4,12 +4,11 @@ import {
   Separator,
   SubmitAndCancelButtons,
 } from "@components/index";
-
 import { useContext, useState } from "react";
 import { GlobalContext } from "../context";
-import { Guest } from "./api/guest";
+import { Guest, updateGuest } from "../db/guests";
+
 import styles from "./despedidaDeSoltera.module.scss";
-import { updateGuest } from "../db/guests";
 
 const texts = {
   address: "Cra. 47 #174a-48, Villa del prado. Bogotá, Colombia",

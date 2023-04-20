@@ -1,7 +1,7 @@
 import { promises as fs, writeFileSync } from "fs";
 import type { NextApiRequest, NextApiResponse } from "next";
 import path from "path";
-import { Guest } from "./guest";
+import { Guest } from "../../db/guests";
 
 export interface Lottery {
   winner: null | string;

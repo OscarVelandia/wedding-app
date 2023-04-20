@@ -1,4 +1,4 @@
-import { Guest } from "../pages/api/guest";
+import { Guest } from "../db/guests";
 import { Lottery } from "../pages/api/lotteryWinner";
 import { customCreateContext } from "./customCreateContext";
 

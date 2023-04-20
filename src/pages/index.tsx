@@ -5,8 +5,7 @@ import Image from "next/image";
 import banner from "public/mainBanner.gif";
 import { useContext, useState } from "react";
 import { GlobalContext } from "../context";
-import { updateGuest } from "../db/guests";
-import { Guest } from "./api/guest";
+import { Guest, updateGuest } from "../db/guests";
 
 import styles from "./index.module.scss";
 
