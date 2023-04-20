@@ -18,7 +18,6 @@
     "paths": {
       "@components/*": ["./src/components/*"],
       "@context/*": ["./src/context/*"],
-      "@db/*": ["./src/db/*"],
       "@hooks/*": ["./src/hooks/*"],
       "@pages/*": ["./src/pages/*"],
       "@globalStyles/*": ["./src/styles/*"],
