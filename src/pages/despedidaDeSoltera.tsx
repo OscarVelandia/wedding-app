@@ -15,8 +15,10 @@ const texts = {
   cancelButton: "No podré asistir :(",
   confirmAssistance: "Confirma tu asistencia a la despedida de soltera:",
   confirmButton: "¡Cuenten conmigo!",
+  date: 'Fecha:',
   mainParagraph:
     "Tendremos una noche llena de diversión, nuestra gente favorita, deliciosa comida y excelente vino para despedir la soltería.",
+  dateAndTime: 'Sábado 22 a las 7 pm',
   place: "Lugar:",
   sent: "Enviado!",
 };
@@ -51,6 +53,7 @@ export default function Bachelorette() {
     <PagesContainer gap="2rem">
       <section className={styles.container}>
         <p>{texts.mainParagraph}</p>
+        <p>{texts.date}{" "}{texts.dateAndTime}</p>
         <p>
           {texts.place}{" "}
           <Address
