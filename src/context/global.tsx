@@ -1,12 +1,11 @@
 import { Guest } from "../db/guests";
-import { Lottery } from "../pages/api/lotteryWinner";
 import { customCreateContext } from "./customCreateContext";
 
 interface GlobalContextType {
   guest: Guest | null;
   guestId: string | null;
   isCodeDialogOpen: boolean;
-  winner: Lottery | null;
+  winner: Guest | null;
 }
 
 const initialState: GlobalContextType = {
@@ -20,7 +19,7 @@ type Action =
   | { type: "SET_CODE_DIALOG_STATUS"; payload: boolean }
   | { type: "SET_GUEST"; payload: Guest }
   | { type: "SET_GUEST_ID"; payload: string }
-  | { type: "SET_WINNER"; payload: Lottery };
+  | { type: "SET_WINNER"; payload: Guest };
 
 function reducer(state: GlobalContextType, action: Action): GlobalContextType {
   switch (action.type) {
