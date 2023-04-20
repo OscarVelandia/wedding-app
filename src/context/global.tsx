@@ -4,25 +4,31 @@ import { customCreateContext } from "./customCreateContext";
 
 interface GlobalContextType {
   guest: Guest | null;
+  guestId: string | null;
   isCodeDialogOpen: boolean;
   winner: Lottery | null;
 }
 
 const initialState: GlobalContextType = {
   guest: null,
+  guestId: null,
   isCodeDialogOpen: true,
   winner: null,
 };
 
 type Action =
-  | { type: "SET_GUEST"; payload: Guest }
   | { type: "SET_CODE_DIALOG_STATUS"; payload: boolean }
+  | { type: "SET_GUEST"; payload: Guest }
+  | { type: "SET_GUEST_ID"; payload: string }
   | { type: "SET_WINNER"; payload: Lottery };
 
 function reducer(state: GlobalContextType, action: Action): GlobalContextType {
   switch (action.type) {
     case "SET_GUEST":
       return { ...state, guest: action.payload };
+
+    case "SET_GUEST_ID":
+      return { ...state, guestId: action.payload };
 
     case "SET_CODE_DIALOG_STATUS":
       return { ...state, isCodeDialogOpen: action.payload };

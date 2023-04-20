@@ -1,15 +1,11 @@
-import {
-  Address,
-  ConfirmationFormContainer,
-  PagesContainer,
-  Separator
-} from "@components/index";
+import { Address, ConfirmationFormContainer, PagesContainer, Separator } from "@components/index";
 import * as Form from "@radix-ui/react-form";
 import { Great_Vibes } from "next/font/google";
 import Image from "next/image";
 import banner from "public/mainBanner.gif";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { GlobalContext } from "../context";
+import { updateGuest } from "../db/guests";
 import { Guest } from "./api/guest";
 
 import styles from "./index.module.scss";
@@ -27,6 +23,7 @@ export const texts = {
   CantAttend: "No puedo ir, ¡pásenla bien!",
   confirm: "Confirma tu asistencia a la ceremonia:",
   date: "29 DE ABRIL DE 2023, 5:00 P.M.",
+  sent: 'Enviado!',
   firstBannerParagraph:
     "Te invitamos a celebrar con nosotros nuestros 13 años juntos",
   location: "Calle 183 #9-09, Usaquén, Bogotá.",
@@ -43,6 +40,8 @@ export const texts = {
 
 export default function Home() {
   const { state, dispatch } = useContext(GlobalContext);
+  const [isLoading, setIsLoading] = useState(false);
+  const [isSent, setIsSent] = useState(false);
 
   const handleFormSubmit = async (data: FormData) => {
     if (!state.guest) return;
@@ -52,17 +51,15 @@ export default function Home() {
       ...data,
       willAttend: data.willAttend === "true",
     };
-    const response = await fetch("/api/guest", {
-      method: "POST",
-      body: JSON.stringify(updatedGuest),
-    });
 
-    if (response.ok) {
-      const guest: Guest = await response.json();
-
-      dispatch({ type: "SET_GUEST", payload: guest });
-    } else {
-      handleFormSubmit(data);
+    try {
+      setIsLoading(true);
+      await updateGuest(state.guestId as string, updatedGuest);
+      setIsLoading(false);
+      setIsSent(true);
+      dispatch({ type: "SET_GUEST", payload: updatedGuest });
+    } catch (error) {
+      setIsLoading(false)
     }
   };
 
@@ -94,10 +91,11 @@ export default function Home() {
         </div>
       </section>
       <Separator />
-      {/* <ConfirmationFormContainer
+      <ConfirmationFormContainer
+        isLoadingSubmitButton={isLoading}
         onFormSubmit={handleFormSubmit}
         title={texts.confirm}
-        submitButtonLabel={texts.sendForm}
+        submitButtonLabel={isSent ? texts.sent : texts.sendForm}
       >
         <Form.Field className={styles.fieldContainer} name="guest">
           <Form.Control
@@ -183,7 +181,7 @@ export default function Home() {
             Por favor selecciona una opción.
           </Form.Message>
         </Form.Field>
-      </ConfirmationFormContainer> */}
+      </ConfirmationFormContainer>
     </PagesContainer>
   );
 }

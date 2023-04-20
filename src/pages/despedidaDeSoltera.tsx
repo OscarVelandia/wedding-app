@@ -2,26 +2,30 @@ import {
   Address,
   PagesContainer,
   Separator,
-  SubmitAndCancelButtons
+  SubmitAndCancelButtons,
 } from "@components/index";
 
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { GlobalContext } from "../context";
 import { Guest } from "./api/guest";
 import styles from "./despedidaDeSoltera.module.scss";
+import { updateGuest } from "../db/guests";
 
 const texts = {
+  address: "Cra. 47 #174a-48, Villa del prado. Bogotá, Colombia",
+  cancelButton: "No podré asistir :(",
   confirmAssistance: "Confirma tu asistencia a la despedida de soltera:",
+  confirmButton: "¡Cuenten conmigo!",
   mainParagraph:
     "Tendremos una noche llena de diversión, nuestra gente favorita, deliciosa comida y excelente vino para despedir la soltería.",
-  confirmButton: "¡Cuenten conmigo!",
-  cancelButton: "No podré asistir :(",
   place: "Lugar:",
-  address: "Cra. 47 #174a-48, Villa del prado. Bogotá, Colombia",
+  sent: "Enviado!",
 };
 
 export default function Bachelorette() {
   const { state, dispatch } = useContext(GlobalContext);
+  const [isLoading, setIsLoading] = useState(false);
+  const [isSent, setIsSent] = useState(false);
 
   const handleButtonClick = async (
     willAttendToTheBacheloretteParty: boolean
@@ -32,17 +36,15 @@ export default function Bachelorette() {
       ...state.guest,
       willAttendToTheBacheloretteParty,
     };
-    const response = await fetch("/api/guest", {
-      method: "POST",
-      body: JSON.stringify(updatedGuest),
-    });
-
-    if (response.ok) {
-      const guest: Guest = await response.json();
-
-      dispatch({ type: "SET_GUEST", payload: guest });
-    } else {
-      handleButtonClick(willAttendToTheBacheloretteParty);
+    try {
+      setIsLoading(true);
+      await updateGuest(state.guestId as string, updatedGuest);
+      setIsLoading(false);
+      setIsSent(true);
+      dispatch({ type: "SET_GUEST", payload: updatedGuest });
+      setTimeout(() => setIsSent(false), 3000)
+    } catch (error) {
+      setIsLoading(false);
     }
   };
 
@@ -59,15 +61,17 @@ export default function Bachelorette() {
         </p>
       </section>
       <Separator />
-      {/* <div>
+      <div>
         <h2 className={styles.formTitle}>{texts.confirmAssistance}</h2>
+        {isSent ? <h2 className={styles.sentText}>{texts.sent}</h2> : null}
         <SubmitAndCancelButtons
-          submitLabel={texts.confirmButton}
+          cancelLabel={texts.cancelButton}
+          isLoadingSubmit={isLoading}
           onCancelButtonClick={() => handleButtonClick(false)}
           onSubmitButtonClick={() => handleButtonClick(true)}
-          cancelLabel={texts.cancelButton}
+          submitLabel={texts.confirmButton}
         />
-      </div> */}
+      </div>
     </PagesContainer>
   );
 }

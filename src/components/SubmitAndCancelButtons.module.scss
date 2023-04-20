@@ -14,4 +14,8 @@ $border-radius: 0.4rem;
   background-color: $main-orange;
   padding: 1rem;
   color: white;
+
+  &:disabled {
+    opacity: 0.5;
+  }
 }

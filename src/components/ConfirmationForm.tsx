@@ -7,6 +7,7 @@ import styles from "./ConfirmationForm.module.scss";
 export const ConfirmationFormContainer = <TFormData,>({
   cancelButtonLabel,
   children,
+  isLoadingSubmitButton,
   onFormSubmit,
   onCancelButtonClick,
   onClearServerErrors,
@@ -15,6 +16,7 @@ export const ConfirmationFormContainer = <TFormData,>({
 }: {
   cancelButtonLabel?: string;
   children: ReactNode;
+  isLoadingSubmitButton?: boolean
   onCancelButtonClick?: () => void;
   onClearServerErrors?: () => void;
   onFormSubmit: (data: TFormData) => Promise<void>
@@ -40,6 +42,7 @@ export const ConfirmationFormContainer = <TFormData,>({
 
         <SubmitAndCancelButtons
           cancelLabel={cancelButtonLabel}
+          isLoadingSubmit={isLoadingSubmitButton}
           onCancelButtonClick={onCancelButtonClick}
           submitLabel={submitButtonLabel}
         />

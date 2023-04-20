@@ -1,8 +1,8 @@
 import { ConfirmationFormContainer } from "@components/index";
 import { GlobalContext } from "@context/index";
-import { Guest } from "@pages/api/guest";
 import * as Form from "@radix-ui/react-form";
 import { useContext, useEffect, useState } from "react";
+import { getGuestByCode } from "@db/guests";
 
 import styles from "./CodeDialog.module.scss";
 
@@ -17,37 +17,40 @@ export const CodeDialog = () => {
   const [serverErrors, setServerErrors] = useState<{ code: string | null }>({
     code: null,
   });
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     document.body.style.overflow = "hidden";
-  
+
     return () => {
-      document.body.style.overflow = "scroll"
-    }
-  }, [state.isCodeDialogOpen])
+      document.body.style.overflow = "scroll";
+    };
+  }, [state.isCodeDialogOpen]);
 
   const handleFormSubmit = async (data: { code: string }) => {
     try {
-      const response = await fetch(`/api/guest?code=${Number(data.code)}`);
+      setIsLoading(true);
+      const { guest, guestId } = await getGuestByCode(data.code);
 
-      if (response.ok) {
-        const guest: Guest = await response.json();
+      setIsLoading(false);
 
-        setServerErrors({ code: null });
-        dispatch({ type: "SET_GUEST", payload: guest });
-        dispatch({ type: "SET_CODE_DIALOG_STATUS", payload: false });
-      } else {
-        setServerErrors({ code: String(await response.json()) });
-      }
+      if (!guest) return setServerErrors({ code: 'Còdigo no valido.' });
+
+      dispatch({ type: "SET_GUEST", payload: guest });
+      dispatch({ type: "SET_GUEST_ID", payload: guestId });
+      dispatch({ type: "SET_CODE_DIALOG_STATUS", payload: false });
     } catch (error) {
       setServerErrors({ code: String(error) as string });
     }
   };
 
+  console.log(isLoading)
+
   return (
     <div className={styles.container}>
       <div className={styles.dialogContent}>
         <ConfirmationFormContainer
+          isLoadingSubmitButton={isLoading}
           onClearServerErrors={() => setServerErrors({ code: null })}
           onFormSubmit={handleFormSubmit}
           title={texts.title}
