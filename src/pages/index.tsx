@@ -34,7 +34,7 @@ export const texts = {
   sendForm: "Enviar",
   subtitle: "Karen y Daniel",
   willAttend: "¡Nos veremos allá!",
-  willIAttend: "Irá a la celebración?",
+  willIAttend: "Irás a la celebración?",
 };
 
 export default function Home() {
