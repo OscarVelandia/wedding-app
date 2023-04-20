@@ -2,7 +2,7 @@ import { ConfirmationFormContainer } from "@components/index";
 import { GlobalContext } from "@context/index";
 import * as Form from "@radix-ui/react-form";
 import { useContext, useEffect, useState } from "react";
-import { getGuestByCode } from "@db/guests";
+import { getGuestByCode } from "../db/guests";
 
 import styles from "./CodeDialog.module.scss";
 
@@ -43,8 +43,6 @@ export const CodeDialog = () => {
       setServerErrors({ code: String(error) as string });
     }
   };
-
-  console.log(isLoading)
 
   return (
     <div className={styles.container}>
