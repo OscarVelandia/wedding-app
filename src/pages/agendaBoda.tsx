@@ -13,6 +13,8 @@ const texts = {
     "La celebración se llevará a cabo en el norte de Bogotá en",
   address: "La Rioja Calle 173 #7 - 95.",
   confirmMenu: 'Confirma tu menú',
+  lluviaDeSobres: 'Lluvia de sobres',
+  gift: 'REGALO'
 };
 
 export default function WeddingSchedule() {
@@ -25,6 +27,10 @@ export default function WeddingSchedule() {
       <section>
         <h2 className={styles.title}>{texts.dressCode}</h2>
         <p>{texts.dressCodeExplanation}</p>
+      </section>
+      <section>
+        <h2 className={styles.title}>{texts.gift}</h2>
+        <p>{texts.lluviaDeSobres}</p>
       </section>
       <section>
         <h2 className={styles.title}>{texts.locationTitle}</h2>
