@@ -35,7 +35,7 @@ export default function WeddingSchedule() {
       <section>
         <h2 className={styles.title}>{texts.locationTitle}</h2>
         <p>
-          {texts.locationExplanation}{" "}
+          {texts.locationExplanation}
           <Address
             addressUrl="https://www.google.com/maps/dir//Conjunto+Residencial+Hacienda+La+Estancia+-+Rioja,+Cl.+173+%237+-+95,+Bogot%C3%A1/@4.7490916,-74.0270391,16.52z/data=!4m8!4m7!1m0!1m5!1m1!1s0x8e3f8fff4a2b4915:0x7500b13159af6139!2m2!1d-74.025257!2d4.7514984"
             label={texts.address}
